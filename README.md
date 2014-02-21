@@ -1,6 +1,6 @@
 ourspace
 ========
 
-mini blog with signin signout.
+mini blog with signin signup.
 
 using Nodejs and Mongodb.
