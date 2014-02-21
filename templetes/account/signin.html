@@ -7,10 +7,10 @@
 
 {% block content %}
 <div class="container">
-  <form class="form-signin" action="/user/signin" method="post" role="form">
+  <form class="form-signin" action="/account/signin" method="post" role="form">
     <h2 class="form-signin-heading">登录</h2>
-    <input type="text" class="form-control" id="signin-username" placeholder="用户名" required autofocus></br>
-    <input type="password" class="form-control" id="signin-password" placeholder="密码" required></br>
+    <input type="text" class="form-control" name="username" id="signin-username" placeholder="用户名" required autofocus></br>
+    <input type="password" class="form-control" name="password" id="signin-password" placeholder="密码" required></br>
     <form class="form-inline" role="form">
       <div class="form-group">
         <button class="btn btn-lg btn-primary" type="submit">提交</button>
@@ -65,14 +65,15 @@
     var confirm = $('#user-confirm').val();
 
     if (username !== "" && password !== "" && confirm === password) {
-      $.post('/user/new', {
+      $.post('/account/new', {
         username: username,
         password: password
         },function (data){
+        data = JSON.parse(data); // 还要转换，应该可以去掉这个步骤
         if (data.status) {
-          $('signin-username').val(username);
-          $('signin-password').val(password);
-          $('fade-signup').modal('hide');
+          $('#signin-username').val(username);
+          $('#signin-password').val(password);
+          $('#fade-signup').modal('hide');
           } else {
           alert("用户名已被使用");
         }

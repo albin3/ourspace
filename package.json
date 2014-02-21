@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "express": "3.4.8",
-    "swig": "*"
+    "swig": "*",
+    "mongodb": "*",
+    "password-hash": "*"
   }
 }
