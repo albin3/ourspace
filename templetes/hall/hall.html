@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+
+{% block css_files %}
+  {% parent %}
+  <link rel="stylesheet" href="/css/hall/hall.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="header">
+<ul class="nav nav-pills pull-right">
+<li class="active"><a href="#">大家的事</a></li>
+<li><a href="/">我的主页</a></li>
+<li><a href="/about">关于</a></li>
+</ul>
+<h3 class="text-muted">Message Hall</h3>
+</div>
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="saysomething">发表说说</label>
+    <input type="text" class="form-control" id="saysomething" placeholder="说点什么..">
+  </div>
+  <button type="submit" class="btn btn-info" id="btn-saysomething">发表</button>
+</form>
+</div>
+{% endblock %}
+
