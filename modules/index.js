@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var modulespath = "./modules/";
 var m = {};
-// 检测当前目录下的模块，并依此加载
+// 检测当前目录下的模块，加依次载
 m.registers = function (app) {
   var files = fs.readdirSync(modulespath);
   files.forEach(function(file) {
