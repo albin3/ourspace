@@ -12,5 +12,11 @@ exports.hall = function(req, res) {
 };
 
 exports.messagenew = function (req, res) {
-  // model.messagenew() // TODO:
+  model.messagenew(req.body, function (err, doc) {
+    if (err || !doc) {
+      return res.end(JSON.stringify({ status: false }));
+    } else {
+      return res.end(JSON.stringify({ status: true  }));
+    }
+  });
 };

@@ -9,7 +9,7 @@
 <div class="container">
 <div class="header">
 <ul class="nav nav-pills pull-right">
-<li class="active"><a href="#">大家的事</a></li>
+<li class="active"><a href="/hall">大家的事</a></li>
 <li><a href="/">我的主页</a></li>
 <li><a href="/about">关于</a></li>
 </ul>
@@ -17,12 +17,12 @@
 </div>
 <hr>
 <div class="div-saysomething">
-  <form class="form-inline" action="admin/messagenew" method="post" role="form">
+  <form class="form-inline" action="" method="" role="form">
     <div class="form-group">
       <label class="sr-only" for="saysomething">发表说说</label>
       <input type="text" class="form-control" id="saysomething" placeholder="说点什么..">
     </div>
-    <button type="submit" class="btn btn-info" id="btn-saysomething">发表</button>
+    <button type="button" class="btn btn-info" id="btn-saysomething">发表</button>
   </form>
 </div>
 <div id="feed_friend">
@@ -47,6 +47,25 @@
 </div>
 </div>
 <script>
+ $('.div-saysomething .btn-info').click(function() {
+    var user = "Albin.";
+    var data = $('#saysomething').val();
+    var time = new Date();
+    if (data !== "") {
+   $.post('/admin/messagenew', {
+     user : user,
+     data : data,
+     time : time
+   }, function(data) {
+     data = JSON.parse(data); // 还要转换，应该可以去掉这个步骤
+     if (data.status) {
+       location.reload();
+     } else {
+       alert("发表失败。。");
+     }
+     });
+   }
+ });
 </script>
 {% endblock %}
 

@@ -10,3 +10,9 @@ exports.hall = function (callback) {
     callback(err, docs);
   });
 };
+
+exports.messagenew = function(msg, callback) {
+  message.insert(msg, function (err, doc) {
+    callback(err, doc);
+  });
+};
