@@ -6,3 +6,6 @@ input#saysomething{
 button#btn-saysomething{
   min-width: 100px;
 }
+.div-saysomething{
+  text-align: center;
+}

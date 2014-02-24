@@ -15,13 +15,30 @@
 </ul>
 <h3 class="text-muted">Message Hall</h3>
 </div>
-<form class="form-inline" role="form">
-  <div class="form-group">
-    <label class="sr-only" for="saysomething">发表说说</label>
-    <input type="text" class="form-control" id="saysomething" placeholder="说点什么..">
+<hr>
+<div class="div-saysomething">
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="sr-only" for="saysomething">发表说说</label>
+      <input type="text" class="form-control" id="saysomething" placeholder="说点什么..">
+    </div>
+    <button type="submit" class="btn btn-info" id="btn-saysomething">发表</button>
+  </form>
+</div>
+<div id="feed_friend">
+  <div class="fn-feed-container">
+    <div class="feed">
+      <div class="feed_inner">
+        <ul id="feed_friend_list">
+          <hr>
+          <li>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <button type="submit" class="btn btn-info" id="btn-saysomething">发表</button>
-</form>
+</div>
 </div>
 {% endblock %}
 
