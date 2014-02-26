@@ -17,7 +17,7 @@
 </div>
 <hr>
 <div class="div-saysomething">
-  <form class="form-inline" role="form">
+  <form class="form-inline" action="admin/messagenew" method="post" role="form">
     <div class="form-group">
       <label class="sr-only" for="saysomething">发表说说</label>
       <input type="text" class="form-control" id="saysomething" placeholder="说点什么..">
@@ -32,7 +32,13 @@
         <ul id="feed_friend_list">
           <hr>
           <li>
-            
+          {% for msg in messages %}
+          <blockquote>
+            <header><p>{{ msg.user }} 发表于 {{ msg.time|date('F jS, Y') }}</header>
+            <div><p>{{ msg.data }}</div>
+            <footer><p>This is a footer.</footer>
+          </blockquote>
+          {% endfor %}
           </li>
         </ul>
       </div>
@@ -40,5 +46,7 @@
   </div>
 </div>
 </div>
+<script>
+</script>
 {% endblock %}
 

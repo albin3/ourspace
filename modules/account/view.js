@@ -30,8 +30,8 @@ exports.authenticate = function(req, res) {
         //return res.end(JSON.stringify({status: false, message: "用户名密码不匹配"}));
       }
     } else {
-      return res.end("success..");
-      //return res.end(JSON.stringify({status: true}));
+      // return res.end("success..");
+      return res.render('hall/hall',{});
     }
   });
 };
