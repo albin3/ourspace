@@ -10,7 +10,7 @@
 <div class="header">
 <ul class="nav nav-pills pull-right">
 <li class="active"><a href="/hall">大家的事</a></li>
-<li><a href="/">我的主页</a></li>
+<li><a href="/userdata">我的主页</a></li>
 <li><a href="/about">关于</a></li>
 </ul>
 <h3 class="text-muted">Message Hall</h3>
@@ -47,25 +47,25 @@
 </div>
 </div>
 <script>
- $('.div-saysomething .btn-info').click(function() {
+  $('.div-saysomething .btn-info').click(function() {
     var user = "Albin.";
     var data = $('#saysomething').val();
     var time = new Date();
     if (data !== "") {
-   $.post('/admin/messagenew', {
-     user : user,
-     data : data,
-     time : time
-   }, function(data) {
-     data = JSON.parse(data); // 还要转换，应该可以去掉这个步骤
-     if (data.status) {
-       location.reload();
-     } else {
-       alert("发表失败。。");
-     }
-     });
-   }
- });
+      $.post('/admin/messagenew', {
+        user : user,
+        data : data,
+        time : time
+        }, function(data) {
+        data = JSON.parse(data); // 还要转换，应该可以去掉这个步骤
+        if (data.status) {
+          location.reload();
+          } else {
+          alert("发表失败。。");
+        }
+      });
+    }
+  });
 </script>
 {% endblock %}
 
