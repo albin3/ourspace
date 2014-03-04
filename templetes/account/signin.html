@@ -93,5 +93,22 @@
     $('#user-password').val("");
     $('#user-confirm').val("");
   });
+  function btn_show() {
+    var count = -1;
+    var value = ['.form-signin .btn-primary', '.form-signin .btn-default'];
+    return function() {
+      count = count + 1;
+      return value[count];
+    };
+  }
+  $().ready(function() {
+    $('.form-signin .btn-primary').hide();
+    $('.form-signin .btn-default').hide();
+    var bt = btn_show();
+    setTimeout(function(){
+      $(bt()).show()
+      setTimeout(function(){$(bt()).show()}, 200);
+      }, 200);
+  });
 </script>
 {% endblock %}
