@@ -2,5 +2,5 @@
 var view = require('./view');
 
 exports.register = function (app) {
-  app.get('/figure/line', view.line);
+  app.get('/ourspace/figure/line', view.line);
 };

@@ -4,7 +4,7 @@ var view = require('./view');
 
 exports.register = function (app) {
   // TODO: hall module.
-  app.get('/hall', view.hall);
+  app.get('/ourspace/hall', view.hall);
   app.post('/admin/messagenew', view.messagenew);
 };
 

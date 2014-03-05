@@ -33,12 +33,19 @@ exports.authenticate = function(req, res) {
     } else {
       // return res.end("success..");
       return hall_model.hall(function (err, msgs) {
-        if (err || !msgs) { 
-          res.render('hall/hall',{});
-        } else { 
-          res.render('hall/hall',{messages: msgs});
-        }
+        // 验证通过，在session 中增加用户信息
+        req.session.username = username;
+
+        res.redirect('/ourspace/hall');
       });
     }
   });
+};
+
+exports.checksignin = function (req, res, next) {
+  if (req.session!== undefined && req.session.username !== undefined) {
+    next();
+  } else {
+    res.render('account/signin',{});
+  }
 };

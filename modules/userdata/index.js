@@ -3,6 +3,6 @@ var view = require('./view');
 
 exports.register = function (app) {
   // TODO: add get, post.
-  app.get('/userdata', view.userdata);
+  app.get('/ourspace/userdata', view.userdata);
 };
 

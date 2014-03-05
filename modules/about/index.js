@@ -4,6 +4,6 @@ var view = require('./view');
 
 exports.register = function (app) {
   // TODO: about module.
-  app.get('/about', view.about);
+  app.get('/ourspace/about', view.about);
 };
 

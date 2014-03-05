@@ -23,6 +23,13 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+
+// 设置session
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({secret: "This is a secret"}));
+
+// 设置路由和静态路由
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'static')));
 
