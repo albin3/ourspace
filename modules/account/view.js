@@ -1,5 +1,6 @@
 // view.js 界面
 var model = require('./model');
+var hall_model = require('../hall/model');
 
 exports.signin = function (req, res) {
   res.render('account/signin',{});
@@ -31,7 +32,13 @@ exports.authenticate = function(req, res) {
       }
     } else {
       // return res.end("success..");
-      return res.render('hall/hall',{});
+      return hall_model.hall(function (err, msgs) {
+        if (err || !msgs) { 
+          res.render('hall/hall',{});
+        } else { 
+          res.render('hall/hall',{messages: msgs});
+        }
+      });
     }
   });
 };
