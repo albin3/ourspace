@@ -12,7 +12,9 @@ exports.hall = function(req, res) {
 };
 
 exports.messagenew = function (req, res) {
-  model.messagenew(req.body, function (err, doc) {
+  var userdata = {};
+  userdata.username = req.session.username;
+  model.messagenew(userdata, req.body, function (err, doc) {
     if (err || !doc) {
       return res.end(JSON.stringify({ status: false }));
     } else {

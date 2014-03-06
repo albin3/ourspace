@@ -35,7 +35,7 @@
           <li>
           {% for msg in messages %}
           <blockquote>
-            <header><p>{{ msg.user }} 发表于 {{ msg.time|date('F jS, Y') }}</header>
+            <header><p>{{ msg.username }} 发表于 {{ msg.time|date('Y-n-d h:i:s a', -8*60) }}</header><!-- 不知道为啥老是差8个小时 -->
             <div><p>{{ msg.data }}</div>
             <footer><p>This is a footer.</footer>
           </blockquote>
@@ -49,12 +49,10 @@
 </div>
 <script>
   $('.div-saysomething .btn-info').click(function() {
-    var user = "Albin.";
     var data = $('#saysomething').val();
     var time = new Date();
     if (data !== "") {
       $.post('/admin/messagenew', {
-        user : user,
         data : data,
         time : time
         }, function(data) {

@@ -11,7 +11,11 @@ exports.hall = function (callback) {
   });
 };
 
-exports.messagenew = function(msg, callback) {
+exports.messagenew = function(userdata, msg, callback) {
+  // 存储发表消息的用户名
+  msg.username = userdata.username;
+  msg.username = msg.username === undefined ? "null" : msg.username;
+  // 存入数据库
   message.insert(msg, function (err, doc) {
     callback(err, doc);
   });
